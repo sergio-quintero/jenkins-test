@@ -1,11 +1,12 @@
-stages {
-  stage('Generate Kubernetes Manifests') {
-    steps {
-    sh '''
-    echo "BUILD=1234" > build.properties
-    '''
+pipeline {
+    agent any
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World' > build.properties
+            }
+        }
     }
-  }
 }
 post {
   always {
