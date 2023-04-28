@@ -3,7 +3,12 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World' > build.properties
+                    sh '''
+                        npm install
+                        npm run import
+                        npm run build
+                        echo "BUILD=1234" > build.properties
+                        '''
                 archiveArtifacts 'build.properties'
             }
         }
